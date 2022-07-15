@@ -7,8 +7,8 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.test.context.jdbc.Sql;
 import org.zalando.problem.Problem;
 import org.zalando.problem.Status;
-import training360.guinnessapp.dto.RecorderCreateCommand;
-import training360.guinnessapp.dto.RecorderDto;
+import training360.guinessapp.dtos.RecorderCreateCommand;
+import training360.guinessapp.dtos.RecorderDto;
 
 import java.time.LocalDate;
 import java.util.List;
