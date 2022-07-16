@@ -4,8 +4,8 @@ POST http://localhost:8080/api/recorders
 Content-Type: application/json
 
 {
-  "name": "Ben",
-  "dateOfBirth": "1999-09-09"
+  "name": "Ken",
+  "dateOfBirth": "1999-08-20"
 }
 
 ### Rekorder mentése - hibakezelés

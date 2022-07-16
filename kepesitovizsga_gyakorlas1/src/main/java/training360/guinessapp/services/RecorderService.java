@@ -26,15 +26,12 @@ public class RecorderService {
     }
 
     public List<RecorderDto> getAllRecorders() {
-        List<Recorder> recorders = repository.findAll();
-        return recorders.stream()
-                .map(r -> new RecorderDto(r.getId(), r.getName(), r.getDateOfBirth(), createWorldRecordDtoList(r.getWorldRecords())))
-                .toList();
+        return repository.findAllByParameters();
     }
 
     private List<WorldRecordDto> createWorldRecordDtoList(List<WorldRecord> records) {
         return records.stream()
-                .map(r -> new WorldRecordDto(r.getId(), r.getDescription(), r.getValue(), r.getUnit(), r.getDate(), r.getRecorder().getName()))
+                .map(r -> new WorldRecordDto(r.getId(), r.getDescription(), r.getValue(), r.getUnitOfMeasure(), r.getDateOfRecord(), r.getRecorder().getName()))
                 .toList();
     }
 }

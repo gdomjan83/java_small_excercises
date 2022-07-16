@@ -1,6 +1,6 @@
 ### Világrekord mentése
 
-POST http://localhost:8080/api/worldrecord
+POST http://localhost:8080/api/worldrecords
 Content-Type: application/json
 
 {

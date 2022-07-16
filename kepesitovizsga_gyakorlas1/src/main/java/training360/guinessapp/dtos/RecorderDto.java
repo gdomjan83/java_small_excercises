@@ -18,4 +18,9 @@ public class RecorderDto {
     private String name;
     private LocalDate dateOfBirth;
     private List<WorldRecordDto> worldRecords = new ArrayList<>();
+
+    public RecorderDto(String name, LocalDate dateOfBirth) {
+        this.name = name;
+        this.dateOfBirth = dateOfBirth;
+    }
 }

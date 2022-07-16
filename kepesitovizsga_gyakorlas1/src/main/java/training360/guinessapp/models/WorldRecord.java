@@ -26,20 +26,20 @@ public class WorldRecord {
     @Column(name = "record_value")
     private Double value;
 
-    @Column(name = "record_unit")
-    private String unit;
+    @Column(name = "unit_of_measure")
+    private String unitOfMeasure;
 
-    @Column(name = "record_date")
-    private LocalDate date;
+    @Column(name = "date_of_record")
+    private LocalDate dateOfRecord;
 
     @ManyToOne
     @JoinColumn(name = "recorder_id")
     private Recorder recorder;
 
-    public WorldRecord(String description, Double value, String unit, LocalDate date) {
+    public WorldRecord(String description, Double value, String unitOfMeasure, LocalDate dateOfRecord) {
         this.description = description;
         this.value = value;
-        this.unit = unit;
-        this.date = date;
+        this.unitOfMeasure = unitOfMeasure;
+        this.dateOfRecord = dateOfRecord;
     }
 }

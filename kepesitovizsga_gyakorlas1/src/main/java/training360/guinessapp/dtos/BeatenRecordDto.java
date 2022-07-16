@@ -5,17 +5,16 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDate;
-
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class WorldRecordDto {
-    private Long id;
+public class BeatenRecordDto {
     private String description;
-    private Double value;
     private String unitOfMeasure;
-    private LocalDate dateOfRecord;
-    private String recorderName;
+    private String previousRecorder;
+    private Double previousRecord;
+    private String newRecorder;
+    private Double newRecord;
+    private Double recordDifference;
 }

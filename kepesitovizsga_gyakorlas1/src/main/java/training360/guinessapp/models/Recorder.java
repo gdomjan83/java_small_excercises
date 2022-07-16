@@ -31,7 +31,7 @@ public class Recorder {
     private LocalDate dateOfBirth;
 
     @OneToMany(mappedBy = "recorder")
-    private Set<WorldRecord> worldRecords = new HashSet<>();
+    private List<WorldRecord> worldRecords = new ArrayList<>();
 
     public Recorder(String name, LocalDate dateOfBirth) {
         this.name = name;
@@ -40,5 +40,10 @@ public class Recorder {
 
     public List<WorldRecord> getWorldRecords() {
         return new ArrayList<>(worldRecords);
+    }
+
+    public void addNewRecord(WorldRecord record) {
+        worldRecords.add(record);
+        record.setRecorder(this);
     }
 }

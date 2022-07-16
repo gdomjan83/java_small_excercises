@@ -3,8 +3,8 @@ CREATE TABLE world_record
     id                 BIGINT AUTO_INCREMENT NOT NULL,
     record_description VARCHAR(255) NULL,
     record_value       DOUBLE NULL,
-    record_unit        VARCHAR(255) NULL,
-    record_date        date NULL,
+    unit_of_measure    VARCHAR(255) NULL,
+    date_of_record       date NULL,
     recorder_id        BIGINT NULL,
     CONSTRAINT pk_world_record PRIMARY KEY (id)
 );
