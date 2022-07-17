@@ -64,6 +64,10 @@ public class MemberQuestionService {
                 .toList();
     }
 
+    public List<NameQuestionPair> getNameQuestionPairs() {
+        return questionRepository.findNameQuestionPairs();
+    }
+
     private void setAnswerToQuestion(Question question, AnswerCommand command) {
         question.setAnswerText(command.getAnswerText());
         question.setAnswerCreatedAt(LocalDateTime.now());

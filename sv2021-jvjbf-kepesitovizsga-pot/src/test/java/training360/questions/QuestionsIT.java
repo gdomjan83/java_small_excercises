@@ -75,43 +75,43 @@ class QuestionsIT {
                 .extracting(QuestionDto::getQuestion, QuestionDto::isAnswered, QuestionDto::getAnswer)
                 .containsSequence("Why is Spring Boot so popular?", true, "Because it is a good framework for creating Java microservices.");
     }
-//
-//    @Test
-//    void testGetPairs() {
-//        CreateMemberCommand createMemberCommand = new CreateMemberCommand("John Doe");
-//        MemberDto member = template.postForObject("/api/members", createMemberCommand, MemberDto.class);
-//
-//        CreateQuestionCommand command;
-//
-//        command = new CreateQuestionCommand("q2");
-//        template.postForObject("/api/members/{id}/questions", command, QuestionDto.class, member.getId());
-//
-//        command = new CreateQuestionCommand("q1");
-//        template.postForObject("/api/members/{id}/questions", command, QuestionDto.class, member.getId());
-//
-//        createMemberCommand = new CreateMemberCommand("Jack Doe");
-//        MemberDto member2 = template.postForObject("/api/members", createMemberCommand, MemberDto.class);
-//
-//        command = new CreateQuestionCommand("q3");
-//        template.postForObject("/api/members/{id}/questions", command, QuestionDto.class, member2.getId());
-//
-//        command = new CreateQuestionCommand("q4");
-//        QuestionDto question = template.postForObject("/api/members/{id}/questions", command, QuestionDto.class, member2.getId());
-//
-//        template.exchange("/api/members/{memberId}/questions/{questionId}/answer",
-//                HttpMethod.PUT,new HttpEntity(
-//                        new AnswerCommand("a4")),
-//                QuestionDto.class, member2.getId(), question.getId()).getBody();
-//
-//        List<NameQuestionPair> questions = template.exchange("/api/pairs",
-//                HttpMethod.GET, null,
-//                new ParameterizedTypeReference<List<NameQuestionPair>>(){}).getBody();
-//        assertThat(questions)
-//                .extracting(NameQuestionPair::getName, NameQuestionPair::getQuestion)
-//                .containsExactly(
-//                        tuple("Jack Doe", "q3"),
-//                        tuple("John Doe", "q1"),
-//                        tuple("John Doe", "q2")
-//                );
-//    }
+
+    @Test
+    void testGetPairs() {
+        CreateMemberCommand createMemberCommand = new CreateMemberCommand("John Doe");
+        MemberDto member = template.postForObject("/api/members", createMemberCommand, MemberDto.class);
+
+        CreateQuestionCommand command;
+
+        command = new CreateQuestionCommand("q2");
+        template.postForObject("/api/members/{id}/questions", command, QuestionDto.class, member.getId());
+
+        command = new CreateQuestionCommand("q1");
+        template.postForObject("/api/members/{id}/questions", command, QuestionDto.class, member.getId());
+
+        createMemberCommand = new CreateMemberCommand("Jack Doe");
+        MemberDto member2 = template.postForObject("/api/members", createMemberCommand, MemberDto.class);
+
+        command = new CreateQuestionCommand("q3");
+        template.postForObject("/api/members/{id}/questions", command, QuestionDto.class, member2.getId());
+
+        command = new CreateQuestionCommand("q4");
+        QuestionDto question = template.postForObject("/api/members/{id}/questions", command, QuestionDto.class, member2.getId());
+
+        template.exchange("/api/members/{memberId}/questions/{questionId}/answer",
+                HttpMethod.PUT,new HttpEntity(
+                        new AnswerCommand("a4")),
+                QuestionDto.class, member2.getId(), question.getId()).getBody();
+
+        List<NameQuestionPair> questions = template.exchange("/api/pairs",
+                HttpMethod.GET, null,
+                new ParameterizedTypeReference<List<NameQuestionPair>>(){}).getBody();
+        assertThat(questions)
+                .extracting(NameQuestionPair::getName, NameQuestionPair::getQuestion)
+                .containsExactly(
+                        tuple("Jack Doe", "q3"),
+                        tuple("John Doe", "q1"),
+                        tuple("John Doe", "q2")
+                );
+    }
 }

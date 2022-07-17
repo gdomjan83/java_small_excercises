@@ -4,7 +4,7 @@ POST http://localhost:8080/api/members
 Content-Type: application/json
 
 {
-  "name": "John Doe"
+  "name": "Bob Doe"
 }
 
 ### List members
@@ -13,11 +13,11 @@ GET http://localhost:8080/api/members
 
 ### Create question
 
-POST http://localhost:8080/api/members/1/questions
+POST http://localhost:8080/api/members/3/questions
 Content-Type: application/json
 
 {
-  "questionText": "Why is Spring Boot so popular?"
+  "questionText": "Why is Spring Boot so popular?5"
 }
 
 ### List questions
