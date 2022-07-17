@@ -40,5 +40,6 @@ public class Question {
 
     public Question(String questionText) {
         this.questionText = questionText;
+        this.questionCreatedAt = LocalDate.now();
     }
 }
