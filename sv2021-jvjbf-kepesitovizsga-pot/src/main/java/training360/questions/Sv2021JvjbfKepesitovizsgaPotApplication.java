@@ -16,5 +16,4 @@ public class Sv2021JvjbfKepesitovizsgaPotApplication {
 	public ModelMapper createModelmapper() {
 		return new ModelMapper();
 	}
-
 }
