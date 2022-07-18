@@ -14,5 +14,4 @@ public interface GardenWorkRepository extends JpaRepository<GardenWork, Long> {
     @Query("select new training360.gardenservices.dtos.NameDescriptionPairDto(g.gardener.name, g.description) from GardenWork g " +
             "where g.done = false order by g.gardener.name, g.description")
     List<NameDescriptionPairDto> findNameDescriptionPairs();
-
 }
