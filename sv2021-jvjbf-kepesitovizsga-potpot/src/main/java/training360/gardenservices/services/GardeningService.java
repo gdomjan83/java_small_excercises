@@ -13,6 +13,7 @@ import training360.gardenservices.repositories.GardenerRepository;
 
 import javax.transaction.Transactional;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -57,7 +58,13 @@ public class GardeningService {
         gardenerRepository.findById(gardenerId).orElseThrow(() -> new GardenerNotFoundException(gardenerId));
         GardenWork work = gardenWorkRepository.findById(gardenWorkId).orElseThrow(() -> new GardenWorkNotFoundException(gardenWorkId));
         work.setAnswer(answerCommand.getAnswerText());
+        work.setDone(true);
+        work.setAnsweredAt(LocalDateTime.now());
         return transformGardenWork(work);
+    }
+
+    public List<NameDescriptionPairDto> getNameWorkPairs() {
+        return gardenWorkRepository.findNameDescriptionPairs();
     }
 
     private List<GardenWorkDto> transformGardenWorkList(List<GardenWork> gardenWorks) {
