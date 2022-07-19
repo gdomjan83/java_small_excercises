@@ -54,7 +54,7 @@ public class GardenerController {
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<Problem> handleValidationError(MethodArgumentNotValidException exception){
+    public ResponseEntity<Problem> handleValidationError(MethodArgumentNotValidException exception) {
         List<Violation> violations =
                 exception.getBindingResult().getFieldErrors().stream()
                         .map((FieldError fe) -> new Violation(fe.getField(), fe.getDefaultMessage()))
