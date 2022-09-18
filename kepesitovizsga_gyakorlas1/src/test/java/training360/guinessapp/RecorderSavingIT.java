@@ -1,4 +1,4 @@
-package training360.guinnessapp;
+package training360.guinessapp;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,7 +42,7 @@ public class RecorderSavingIT {
 
     @Test
     void test_dateOfBirthInFuture() {
-        RecorderCreateCommand inputCommand = new RecorderCreateCommand("", LocalDate.of(2999, 9, 9));
+        RecorderCreateCommand inputCommand = new RecorderCreateCommand("John", LocalDate.of(2999, 9, 9));
         Problem problem = template.postForObject("/api/recorders", inputCommand, Problem.class);
         assertEquals(Status.BAD_REQUEST, problem.getStatus());
         assertEquals("must be in the past", (((List<Map<String, String>>) problem.getParameters().get("violations")).get(0)).get("message"));

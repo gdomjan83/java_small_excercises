@@ -7,6 +7,6 @@ import java.net.URI;
 
 public class RecorderNotFoundException extends AbstractThrowableProblem {
     public RecorderNotFoundException() {
-        super(URI.create("recorder/not-found"), "Not found", Status.BAD_REQUEST, "Recorder not found");
+        super(URI.create("recorder/not-found"), "Recorder not found", Status.NOT_FOUND, "Recorder not found");
     }
 }

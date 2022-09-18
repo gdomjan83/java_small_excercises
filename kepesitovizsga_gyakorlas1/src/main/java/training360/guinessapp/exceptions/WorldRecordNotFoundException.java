@@ -7,6 +7,6 @@ import java.net.URI;
 
 public class WorldRecordNotFoundException extends AbstractThrowableProblem {
     public WorldRecordNotFoundException() {
-        super(URI.create("records/not-found"), "Not found", Status.BAD_REQUEST, "World record not found");
+        super(URI.create("records/not-found"), "Not found", Status.NOT_FOUND, "World record not found");
     }
 }
